@@ -1,12 +1,15 @@
-# Write a Python program to remove the intersection of a 2nd set from the 1st set
+# Write a Python program to remove an item from a set if it is present in the set.
 
 
-def exercise_17(first_set: set, second_set) -> set:
+def exercise_18():
     # Your code here
     return
 
 
-cars_1 = {"Ferrari", "Mclaren"}
-cars_2 = {"Ferrari"}
+basket = {"Hamburger", "Rice", "Carrot", "Eggs"}
 
-assert exercise_17(cars_1, cars_2) == {"Mclaren"}
+item_to_remove = "Hamburger"
+assert exercise_18(basket, item_to_remove) == {"Rice", "Carrot", "Eggs"}
+
+item_to_remove = "Cauliflower"
+assert exercise_18(basket, item_to_remove) == {"Rice", "Carrot", "Eggs"}

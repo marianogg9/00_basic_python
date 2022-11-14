@@ -1,15 +1,11 @@
-# Write a Python program to remove an item from a set if it is present in the set.
+# Write a Python program to iteration over sets
 
 
-def exercise_18():
+def exercise_19(cars: set):
     # Your code here
-    return
+    pass
 
 
-basket = {"Hamburger", "Rice", "Carrot", "Eggs"}
+cars = {"Ferrari", "Mercedes", "Peugeot"}
 
-item_to_remove = "Hamburger"
-assert exercise_18(basket, item_to_remove) == {"Rice", "Carrot", "Eggs"}
-
-item_to_remove = "Cauliflower"
-assert exercise_18(basket, item_to_remove) == {"Rice", "Carrot", "Eggs"}
+assert exercise_19(cars)

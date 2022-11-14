@@ -1,11 +1,13 @@
-# Write a Python program to iteration over sets
+# Write a Python program to create a set
 
 
-def exercise_19(cars: set):
+def exercise_20(elements: list) -> set:
     # Your code here
-    pass
+    return
 
 
-cars = {"Ferrari", "Mercedes", "Peugeot"}
+elements_to_add = ["Fox", "Fox", "Cat", "Cat", "Dog"]
 
-assert exercise_19(cars)
+assert len(exercise_20(elements_to_add)) == 3
+assert exercise_20(elements_to_add) == {"Fox", "Cat", "Dog"}
+assert exercise_20(elements_to_add) == {"Dog", "Fox", "Cat"}
