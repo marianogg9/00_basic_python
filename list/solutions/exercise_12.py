@@ -3,8 +3,9 @@
 #       and returns the same list updated
 
 def exercise_12(list_colors: list) -> bool:
-    # Your code here
-    return
+    del list_colors[0]
+    del list_colors[-2:]
+    return list_colors
 
 
 list1 = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']

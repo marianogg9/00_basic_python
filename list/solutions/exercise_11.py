@@ -5,8 +5,13 @@
 
 
 def exercise_11(list1: list, list2: list) -> bool:
-    # Your code here
-    return
+
+    for w in list1:
+        if w in list2:
+            return True
+
+    # reduce(lambda x,y: x or y, [True for w in list1 if w in list2 else False]])
+    return False
 
 
 # 1st test

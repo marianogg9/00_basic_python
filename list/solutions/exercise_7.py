@@ -3,6 +3,7 @@
 
 
 def exercise_7(sample_list: list) -> list:
+    sample_list.pop(2)
     return sample_list
 
 

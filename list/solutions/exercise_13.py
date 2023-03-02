@@ -1,11 +1,13 @@
 # TODO: Write a Python program
-#       to print the numbers of a specified list
-#       after removing even numbers from it.
+#       which returns a list of numbers
+#       after removing even numbers to it.
 
 
 def exercise_13(list1: list) -> bool:
-    # Your code here
-    return
+    return [
+        number for number in list1
+        if number % 2 > 0
+    ]
 
 
 list1 = [1, 2, 46, 7, 8, 9, 56]

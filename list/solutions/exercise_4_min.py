@@ -3,8 +3,7 @@
 
 
 def exercise_4(numbers: list) -> int:
-    # Your code here
-    return
+    return min(numbers)
 
 
 numbers = [1, 2, 3, 4]

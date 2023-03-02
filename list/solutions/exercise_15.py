@@ -2,7 +2,7 @@
 #       to split a list into different variables.
 
 def exercise_15(list1: list) -> tuple:
-    # Your code here
+    a, b, c, d = list1
     assert a == 1
     assert b == 2
     assert c == 3
@@ -11,3 +11,4 @@ def exercise_15(list1: list) -> tuple:
 
 list1 = [1, 2, 3, 4]
 exercise_15(list1)
+

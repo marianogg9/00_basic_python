@@ -1,10 +1,10 @@
 # TODO: Write a Python program
 #       to generate all permutations of a list in Python.
+from itertools import permutations
 
 
 def exercise_18(list1: list) -> list:
-    # Your code here
-    return
+    return list(permutations(list1, 3))
 
 
 list1 = [1, 2, 3]

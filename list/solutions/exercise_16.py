@@ -4,8 +4,9 @@
 
 
 def exercise_16(list1: list, element) -> list:
-    # Your code here
-    return
+    for index in range(len(list1), 0, -1):
+        list1.insert(index-1, element)
+    return list1
 
 
 list1 = [1, 2, 3, 4]

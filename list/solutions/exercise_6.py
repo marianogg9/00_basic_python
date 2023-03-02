@@ -2,10 +2,9 @@
 #       which deletes the first 3 elements of a list
 #       and returns the same list updated
 
-
 def exercise_6(list1):
-    # Your code here
-    return
+    pass
+
 
 # 1st test
 list1 = [1, 2, 3, 5, 6]
