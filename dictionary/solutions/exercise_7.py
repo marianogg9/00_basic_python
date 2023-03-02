@@ -1,5 +1,4 @@
-# TODO: Write a Python program
-#       to drop empty Items from a given Dictionary.
+# Write a Python program to drop empty Items from a given Dictionary.
 
 # Original Dictionary:
 dict1 = {'c1': 'Red', 'c2': 'Green', 'c3': None}
@@ -8,7 +7,7 @@ dict1 = {'c1': 'Red', 'c2': 'Green', 'c3': None}
 
 
 def exercise_7(dict1):
-    # Your code here
+    dict1.pop("c3")
     return dict1
 
 

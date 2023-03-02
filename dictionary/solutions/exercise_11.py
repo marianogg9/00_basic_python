@@ -1,10 +1,9 @@
 # TODO: Write a Python program
-#       to convert a given dictionary into a list of lists.
+#       to convert a given dictionary into a list of tuples.
 
 
-def exercise_11(dic1):
-    # Your code here
-    return []
+def exercise_11(dict1):
+    return dict1.items()
 
 
 # 1st test

@@ -15,3 +15,4 @@ def exercise_18(dict1, height, weight):
 
 assert set(exercise_18(dict1, 6.2, 70)) == set(["Cierra Vega"])
 assert set(exercise_18(dict1, 5.8, 66)) == set(["Cierra Vega", "Pierre Cox"])
+

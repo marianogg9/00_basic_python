@@ -10,8 +10,7 @@ dict1 = {
 
 
 def exercise_3(dict1):
-    # Your code here
-    pass
+    print(set(dict1.values()))
 
 
 exercise_3(dict1)

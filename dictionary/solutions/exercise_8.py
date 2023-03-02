@@ -3,8 +3,7 @@
 
 
 def exercise_9(dict1):
-    # Your code here
-    pass
+    return all(val == 12 for val in dict1.values())
 
 
 dict1 = {'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12}

@@ -3,6 +3,7 @@
 
 
 def exercise_19(dict1):
+    dict1.update({"message": "Bonjour", "username": "Francois"})
     return dict1
 
 

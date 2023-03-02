@@ -3,7 +3,6 @@
 
 
 def exercise_12(dict1):
-    # Your code here
     return dict1
 
 

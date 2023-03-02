@@ -9,8 +9,9 @@ list2 = [1, 2, 2, 3]
 
 
 def exercise_6(first_list, second_list):
-    # Your code here
-    return
+    list_merged = list(zip(list1, list2))
+    print(list_merged)
+    return {k: {v} for k, v in list_merged}
 
 
 assert exercise_6(list1, list2) == {'Class-V': {1}, 'Class-VI': {2}, 'Class-VII': {2}, 'Class-VIII': {3}}

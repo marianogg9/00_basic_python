@@ -7,11 +7,8 @@ dict1 = {
     "e  ": 3
 }
 
-
 def exercise_5(dict1):
-    # Your code here
-    return
-
+    return {k.replace(" ", ""): v for k, v in dict1.items()}
 
 
 assert exercise_5(dict1) == {"a": 1, "bbb": 2, "e": 3}
