@@ -4,9 +4,13 @@
 
 
 def exercise_17(list1: list) -> list:
-    # Your code here
-    return
+    list1.sort(key=get_qty)
+    
+    print(list1)
+    return list1
 
+def get_qty(key):
+    return key["qty"]
 
 list1 = [
     {"fruit": "Apple", "qty": 4},

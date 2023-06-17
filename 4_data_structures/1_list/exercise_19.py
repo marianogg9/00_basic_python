@@ -3,8 +3,9 @@
 # Multidimensional list: [[0, 0], [0, 0], [0, 0]]
 
 def exercise_19(col, row) -> list:
-    # Your code here
-    return
+    new_list = [[0]*row]*col
+  
+    return new_list
 
 
 assert exercise_19(2, 3) == [

@@ -3,7 +3,13 @@
 
 
 def exercise_7(sample_list: list) -> list:
-    return sample_list
+    dictionary = dict()
+    new_list = []
+    for i in sample_list:
+        if i not in dictionary:
+            dictionary[i] = sample_list.index(i)
+            new_list.append(i)
+    return new_list
 
 
 string_list = ['abc', 'xyz', 'abc', '1221']

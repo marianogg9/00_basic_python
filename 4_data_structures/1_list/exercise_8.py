@@ -3,8 +3,7 @@
 
 
 def exercise_8(sample_list: list) -> bool:
-    # Your code here
-    return
+    return len(sample_list) > 0
 
 
 string_list = ['abc', 'xyz', 'abc', '1221']

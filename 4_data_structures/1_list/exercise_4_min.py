@@ -3,10 +3,14 @@
 
 
 def exercise_4(numbers: list) -> int:
-    # Your code here
-    return
+    min_number = numbers[0]
+    for i in numbers:
+        if i <= min_number:
+            min_number = i
+    return min_number
 
 
 numbers = [1, 2, 3, 4]
-largest_number = exercise_4(numbers)
-assert largest_number == 1
+min_number = exercise_4(numbers)
+print(min_number == 1)
+assert min_number == 1

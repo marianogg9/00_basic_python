@@ -4,8 +4,13 @@
 
 
 def exercise_14(list1: list) -> dict:
-    # Your code here
-    return
+    tracker = dict()
+    for i in list1:
+        if i in tracker:
+            tracker[i] += 1
+        else:
+            tracker[i] = 1
+    return tracker
 
 
 list1 = ["a", "a", "b", "b", "c", "d", "d", "d"]

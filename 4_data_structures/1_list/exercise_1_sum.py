@@ -3,11 +3,13 @@
 
 
 def exercise_1(numbers: list) -> int:
-    # Your code here
-    return
+    total = 0
+    for i in numbers:
+        total = total + i
+    return total
 
 
 numbers = [1, 2, 3, 4]
 
-sum = exercise_1(numbers)
+print(exercise_1(numbers) == 10)
 assert sum == 10

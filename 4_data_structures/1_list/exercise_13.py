@@ -4,8 +4,12 @@
 
 
 def exercise_13(list1: list) -> bool:
-    # Your code here
-    return
+    new_list = []
+    for i in list1:
+        if i % 2 != 0:
+            new_list.append(i)
+
+    return new_list
 
 
 list1 = [1, 2, 46, 7, 8, 9, 56]

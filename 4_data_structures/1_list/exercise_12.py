@@ -3,8 +3,10 @@
 #       and returns the same list updated
 
 def exercise_12(list_colors: list) -> bool:
-    # Your code here
-    return
+    list_colors.pop(0)  # pop 0th - now len(list_colors) = 5, 5th is 4th and 4th is 3rd
+    list_colors.pop(3)  # pop new 3rd - now len(list_colors) = 4, 5th is 3rd and 4th is 2nd
+    list_colors.pop(3)  # pop new 3rd
+    return list_colors
 
 
 list1 = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']

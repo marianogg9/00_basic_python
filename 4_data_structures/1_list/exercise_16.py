@@ -4,8 +4,11 @@
 
 
 def exercise_16(list1: list, element) -> list:
-    # Your code here
-    return
+    new_list = []
+    for i in list1:
+        new_list.append(element)
+        new_list.append(i)
+    return new_list
 
 
 list1 = [1, 2, 3, 4]
