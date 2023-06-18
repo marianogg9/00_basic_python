@@ -10,8 +10,11 @@ dict1 = {
 
 
 def exercise_3(dict1):
-    # Your code here
-    pass
+    new_dict = dict()
+    for i in dict1:
+        if dict1[i] not in new_dict.values():
+            new_dict[i] = dict1[i]
+    return list(new_dict.values())
 
 
-exercise_3(dict1)
+assert exercise_3(dict1) == [3, 70, 9888]

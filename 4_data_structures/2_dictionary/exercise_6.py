@@ -9,8 +9,18 @@ list2 = [1, 2, 2, 3]
 
 
 def exercise_6(first_list, second_list):
-    # Your code here
-    return
+    # new_dict = dict(zip(first_list,second_list))
+    new_dict = dict()
+    
+    for i in range(len(first_list)):
+        new_dict.update({first_list[i]: second_list[i]})
+
+    list_merged = list(zip(list1, list2))
+    new_dict = {k:{v} for k,v in list_merged}
+    print(list_merged)
+
+    print(list_merged)
+    return new_dict
 
 
 assert exercise_6(list1, list2) == {'Class-V': {1}, 'Class-VI': {2}, 'Class-VII': {2}, 'Class-VIII': {3}}

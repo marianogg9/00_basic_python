@@ -9,8 +9,10 @@ dict1 = {
 
 
 def exercise_5(dict1):
-    # Your code here
-    return
+    new_dict = dict()
+    for i in dict1:
+        new_dict[i.replace(" ","")] = dict1[i]
+    return new_dict
 
 
 
