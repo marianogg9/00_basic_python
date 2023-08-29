@@ -12,10 +12,35 @@ kids_candies_bucket_report = [
 
 
 def exercise_5(report: List[List[int]]) -> str:
-    return
+    helper = {}
+    names = ['Marty','Leon','Anna','Mary']
 
+    for i in kids_candies_bucket_report:
+        for j in i:
+            if j in helper:
+                helper[j] += 1
+            else:
+                helper[j] = 1
+        
+    print(helper)
 
-assert exercise_5() == (
+    mostCommon = max(helper,key=helper.get)
+
+    firstLine = "Candy " + "\'" + str(mostCommon) + "\'" + " is the most popular.\n"
+    kids, output = [], []
+    for i in range(len(kids_candies_bucket_report)-1):
+        if mostCommon in kids_candies_bucket_report[i]:
+            kids.append(names[i])
+    for kid in kids:
+        output += str(kid)
+        print(type(output))
+
+    message = firstLine + output
+    print(message)
+
+    return message
+
+assert exercise_5(kids_candies_bucket_report) == (
     "Candy '2' is the most popular. "
     "Marty, Leon, Anna and Mary picked it up"
 )

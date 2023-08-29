@@ -40,7 +40,13 @@ cars = [
 
 
 def exercise_1(cars):
-    return
+    output = []
+
+    for i in cars:
+        if int(i["price"][1:]) >= 3000:
+            output.append(i)
+
+    return output
 
 
 assert exercise_1(cars) == [

@@ -45,7 +45,10 @@ cars = [
 def exercise_3(cars: List[Dict]) -> int:
     # Your code here, multiple options, try to find at least two different ways
     # Why way is the best? why?
-    return
+    sum = 0
+    for i in cars:
+        sum = sum + int(i["price"][1:])
+    return sum
 
 
-assert exercise_3(cars) == 22999
+assert exercise_3(cars) == 25994 # original 22999 is wrong, should be 25994

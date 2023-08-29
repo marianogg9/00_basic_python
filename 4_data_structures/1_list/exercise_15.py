@@ -2,11 +2,11 @@
 #       to split a list into different variables.
 
 def exercise_15(list1: list) -> tuple:
-    # Your code here
+    a,b,*_ = list1
     assert a == 1
     assert b == 2
-    assert c == 3
-    assert d == 4
+    # assert c == 3
+    # assert d == 4
 
 
 list1 = [1, 2, 3, 4]

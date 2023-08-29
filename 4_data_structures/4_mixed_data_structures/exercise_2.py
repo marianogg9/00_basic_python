@@ -41,7 +41,19 @@ cars = [
 
 def exercise_2(cars):
     # Your code here, multiple options, try to find two different ways
-    return
+    # output,helper = [],[]
+
+    # output = sorted(cars,key=lambda x: x["year"]) // working
+
+    # Now with selection sort
+    for i in range(len(cars)-2):
+        x = cars.index(min(cars[i:], key=lambda j: j["year"]))
+        y = cars[i]
+        cars[i] = min(cars[i:], key=lambda j: j["year"])
+        cars[x] = y
+
+    print(cars)
+    return cars
 
 
 assert exercise_2(cars) == [
