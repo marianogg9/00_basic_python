@@ -13,8 +13,8 @@ class RobotFactory:
     def talk(self,message):
         return message
 
-    def walk(self):
-        return "I'm walking"
+    def walk(self, message):
+        return message
 
     robots_created = []
 
@@ -26,22 +26,37 @@ class FighterRobot(RobotFactory):
     type: str = "fighter"
 
     def fight(self):
-        return "I'm fighting"
+        return "Fight in progress ..."
 
-    super().talk("Hello Sir, Please show me your ID")
+    def talk(self):
+        message = super().talk("Hello Sir, Please show me your ID")
+        return message
+
+    def walk(self):
+        return super().walk("I am walking safely")
 
 class CookRobot(RobotFactory):
     type: str = "cook"
 
     def cook(self):
-        return "I'm cooking"
+        return "Cooking in progress"
 
-    super().talk("What can I cook for you today?")
+    def talk(self):
+        message = super().talk("What can I cook for you today?")
+        return message
+
+    def walk(self):
+        return super().walk("I am walking slowly")
 
 class FireFighterRobot(RobotFactory):
     type: str = "firefighter"
 
     def put_out_fire(self):
-        return "I'm putting out a fire"
+        return "Putting out the fire ..."
 
-    super().talk("We are there to protect you. Please stay behind the line")
+    def talk(self):
+        message = super().talk("We are there to protect you. Please stay behind the line")
+        return message
+
+    def walk(self):
+        return super().walk("I am walking fast")
