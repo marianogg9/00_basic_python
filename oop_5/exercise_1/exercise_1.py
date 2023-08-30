@@ -11,7 +11,7 @@
 # You need to use the oop concepts to complete this exercise
 
 # --------- Create bots -----------
-from oop.models import RobotFactory
+from models import RobotFactory
 
 assert RobotFactory.new_robot(name="scythe", identifier="00001", color="metallic", type="cook")
 assert RobotFactory.new_robot(name="de303", identifier="00002", color="red", type="cook")
