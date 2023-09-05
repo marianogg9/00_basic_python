@@ -12,11 +12,15 @@
 
 # --------- Create bots -----------
 from models import RobotFactory
+robot_1 = RobotFactory.new_robot(name="scythe", identifier="00001", color="metallic", type="cook")
+print(robot_1.robots_created)
 
 assert RobotFactory.new_robot(name="scythe", identifier="00001", color="metallic", type="cook")
 assert RobotFactory.new_robot(name="de303", identifier="00002", color="red", type="cook")
 assert RobotFactory.new_robot(name="de313", identifier="00003", color="red", type="fighter")
 assert RobotFactory.new_robot(name="arm303", identifier="00004", color="red", type="firefighter")
+print("robots:",RobotFactory.robots_created)
+
 assert len(RobotFactory.robots_created) == 4
 
 assert RobotFactory.new_robot(name="Arm303", identifier="00004", color="red", type="doctor") is False

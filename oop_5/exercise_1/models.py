@@ -3,20 +3,29 @@ class RobotFactory:
     identifier: int
     color: str
     type: str
+    robots_created: list
 
-    def new_robot(self,name,identifier,color,type):
+    global lista
+    lista = []
+
+    def __init__(self,name,identifier,color,type,robots_created = []):
         self.name = name
         self.identifier = identifier
         self.color = color
         self.type = type
-    
-    def talk(self,message):
+        self.robots_created = robots_created
+
+        robots_created.append([name,identifier,color,type])
+
+    def new_robot(name,identifier,color,type):
+        robot = RobotFactory(name,identifier,color,type)
+        return robot
+
+    def talk(self, message):
         return message
 
     def walk(self, message):
         return message
-
-    robots_created = []
 
     def create_fighter_bots(self,num,robots_created):
         for i in range(num):
