@@ -15,7 +15,8 @@ class RobotFactory:
 
     def new_robot(name,identifier,color,type):
         robot = RobotFactory(name,identifier,color,type)
-        robot_list.append([robot.identifier + " - " + robot.name + " (" + robot.type + ") " + "- " + robot.color])
+        # robot_list.append([robot.identifier + " - " + robot.name + " (" + robot.type + ") " + "- " + robot.color])
+        robot_list.append(robot)
         return robot
 
     def robots_created():
@@ -24,7 +25,38 @@ class RobotFactory:
     def talk(self, message):
         return message
 
-    def walk(self, message):
+    def walk(self):
+        if self.type == "fighter":
+            message = "I am walking safely"
+        else:
+            if self.type == "cook":
+                message = "I am walking slowly"
+            else:
+                message = "I am walking fast"
+        return message
+
+    def fight(self):
+        if self.type == "fighter":
+            message = "Fight in progress ..."
+        else:
+            message = "Type " + self.type + " has no fight() method"
+        
+        return message
+
+    def cook(self):
+        if self.type == "cook":
+            message = "Cooking in progress"
+        else:
+            message = "Type " + self.type + " has no cook() method"
+        
+        return message
+
+    def put_out_fire(self):
+        if self.type == "firefighter":
+            message = "Putting out the fire ..."
+        else:
+            message = "Type " + self.type + " has no cook() method"
+        
         return message
 
     def create_fighter_bots(num):

@@ -50,19 +50,19 @@ assert len(RobotFactory.robots_created()) == 104
 # Before sending it to the customer
 
 # Check if bot can walk and cook
-cook_bot = RobotFactory.robots_created[0]
+cook_bot = RobotFactory.robots_created()[0]
 assert cook_bot.identifier == "00001"
 assert cook_bot.walk() == "I am walking slowly"
 assert cook_bot.cook() == "Cooking in progress"
 
 # Check if fighter can walk and fight
-fighter_bot = RobotFactory.robots_created[2]
+fighter_bot = RobotFactory.robots_created()[2]
 assert fighter_bot.identifier == "00003"
 assert fighter_bot.walk() == "I am walking safely"
 assert fighter_bot.fight() == "Fight in progress ..."
 
 # Check if firefighter can walk and put out a fire
-fire_fighter_bot = RobotFactory.robots_created[3]
+fire_fighter_bot = RobotFactory.robots_created()[3]
 assert fire_fighter_bot.identifier == "00004"
 assert fire_fighter_bot.walk() == "I am walking fast"
 assert fire_fighter_bot.put_out_fire() == "Putting out the fire ..."
