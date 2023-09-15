@@ -1,31 +1,19 @@
-class RobotFactory:
+class Robot:
     name: str
     identifier: int
     color: str
     type: str
-
-    global robot_list
-    robot_list = []
 
     def __init__(self,name,identifier,color,type):
         self.name = name
         self.identifier = identifier
         self.color = color
         self.type = type
-
-    def new_robot(name,identifier,color,type):
-        robot = RobotFactory(name,identifier,color,type)
-        # robot_list.append([robot.identifier + " - " + robot.name + " (" + robot.type + ") " + "- " + robot.color])
-        robot_list.append(robot)
-        return robot
-
-    def robots_created():
-        return robot_list
-
+    
     def talk(self, message):
         return message
 
-    def walk(self):
+    def walk(self,message):
         if self.type == "fighter":
             message = "I am walking safely"
         else:
@@ -35,36 +23,37 @@ class RobotFactory:
                 message = "I am walking fast"
         return message
 
-    def fight(self):
-        if self.type == "fighter":
-            message = "Fight in progress ..."
-        else:
-            message = "Type " + self.type + " has no fight() method"
-        
-        return message
+class RobotFactory:
+    
+    robots_created = []
 
-    def cook(self):
-        if self.type == "cook":
-            message = "Cooking in progress"
-        else:
-            message = "Type " + self.type + " has no cook() method"
-        
-        return message
+    @classmethod # self is not needed
+    def new_robot(cls,name,identifier,color,type):
+        # strategy
+        try:
+            types = {"cook": CookRobot, "fighter": FighterRobot, "firefighter": FireFighterRobot}
+            robot_class = types[type]
 
-    def put_out_fire(self):
-        if self.type == "firefighter":
-            message = "Putting out the fire ..."
-        else:
-            message = "Type " + self.type + " has no cook() method"
-        
-        return message
+            robot = robot_class(name,identifier,color,type)
+        except KeyError:
+            return False
 
-    def create_fighter_bots(num):
+        cls.robots_created.append(robot) # robots_created is now a property of the class
+        # add conditional exception for not allowed values
+        return robot
+
+    @classmethod
+    def create_fighter_bots(cls,num):
+        print("num:",num)
         for i in range(num):
             RobotFactory.new_robot(name="scythe"+str(i), identifier="0000"+str(i), color="metallic", type="fighter")
-        return robot_list
+        return cls.robots_created
+    
+    # def __str__(self):
+    #     # message = concatenation of wanted properties of the object
+    #     return message
 
-class FighterRobot(RobotFactory):
+class FighterRobot(Robot):
     type: str = "fighter"
 
     def fight(self):
@@ -77,7 +66,7 @@ class FighterRobot(RobotFactory):
     def walk(self):
         return super().walk("I am walking safely")
 
-class CookRobot(RobotFactory):
+class CookRobot(Robot):
     type: str = "cook"
 
     def cook(self):
@@ -90,7 +79,7 @@ class CookRobot(RobotFactory):
     def walk(self):
         return super().walk("I am walking slowly")
 
-class FireFighterRobot(RobotFactory):
+class FireFighterRobot(Robot):
     type: str = "firefighter"
 
     def put_out_fire(self):
