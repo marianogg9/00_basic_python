@@ -32,9 +32,9 @@ class TestShapeFactory:
         assert isinstance(shape, Shape)
         assert shape.name in ["square", "s", "u", "bar"]
 
-    # def test_generate_combined_shape(self):
-    #     shape1 = ShapeFactory.generate_new_shape()
-    #     shape2 = ShapeFactory.generate_new_shape()
-    #     shape = ShapeFactory.generate_combined_shape(shape1, shape2)
-    #     assert isinstance(shape, Shape)
-    #     assert shape.name == "custom"
+    def test_generate_combined_shape(self):
+        shape1 = ShapeFactory.generate_new_shape()
+        shape2 = ShapeFactory.generate_new_shape()
+        shape = ShapeFactory.generate_combined_shape(shape1, shape2)
+        assert isinstance(shape, Shape)
+        assert shape.name == "custom"

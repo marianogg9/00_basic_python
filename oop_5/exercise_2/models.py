@@ -33,6 +33,10 @@ class Shape:
     
         return shape
 
+    def generate_combined_shape(shape1,shape2):
+        shape = Rect.unionall_ip(shape1,shape2)
+        return shape
+
 # ShapeBar
 class ShapeBar(Shape): 
     ## bar: 4 in the same column:

@@ -16,3 +16,6 @@ class ShapeFactory:
     @classmethod
     def generate_new_shape(cls):
         return Shape.new_shape() # models.shape.new_shape
+
+    def generate_combined_shape(shape1,shape2):
+        return Shape.generate_combined_shape(shape1,shape2)
