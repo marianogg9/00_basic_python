@@ -15,6 +15,4 @@ class ShapeFactory:
 
     @classmethod
     def generate_new_shape(cls):
-        s = Shape.new_shape() # models.shape.new_shape
-        print(s.name) # this is not printed..
-        return s
+        return Shape.new_shape() # models.shape.new_shape

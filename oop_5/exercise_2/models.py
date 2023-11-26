@@ -3,9 +3,9 @@ from pygame import Rect
 
 # Shape
 class Shape:
-    height: float = 50
-    width: float = 50
-    left: float = 50
+    height: float
+    width: float
+    left: float
     top: float
     type: str
     name: str
@@ -20,74 +20,98 @@ class Shape:
     
     @classmethod
     def new_shape(cls):
-        print("this is the Shape.new_shape method") # this is not printed.. but if add a print and return False, pytest works.
+        print("this is the Shape.new_shape method") # this is not printed.. but if add a print and return False, pytest prints this.
         # return False
-        try:
-            types = {"bar": ShapeBar, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
-            type = "bar" # random.choice(list(types))
-            shape_class = types[type]
-            print(shape_class)
-            name = str(type)
-            width,height,left,top = 0,0,0,0
+        types = {"bar": ShapeBar, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
+        type = random.choice(list(types))
+        shape_class = types[type]
+        print(shape_class)
+        name = str(type)
+        width,height,left,top = 0,0,0,0
 
-            shape = shape_class(type,name,width,height,left,top)
-            
-        except KeyError:
-            return False
+        shape = shape_class(type,name,width,height,left,top)
     
         return shape
 
 # ShapeBar
-class ShapeBar(Shape):
+class ShapeBar(Shape): 
+    ## bar: 4 in the same column:
+    # (0,0,0,0)
+    # (1,0,0,0)
+    # (2,0,0,0)
+    # (3,0,0,0)
+
     type: str = "bar"
     name: str = "bar"
-    left: float = 0
-    top: float = 0
-    width: float = 50
-    height: float = 50
-
-    print("this is the ShapeBar class")
 
     def get_name(self):
         return self.name
 
-    # Rect(left,top,width,height)    
-
-    # def new_shape_bar(self,left,top,width,height):
-    #     b = Rect(left,top,width,height)
-
-    #     return b
+    def new_bar():
+        rect_list = []
+        for i in range(4):
+            rect_list.append(Rect(i,0,0,0))
+        
+        return rect_list
 
 # ShapeS
-class ShapeS(Shape):
+class ShapeS(Shape): 
+    ## s: 
+    #           (0,1,0,0),(0,2,0,0)
+    #           (1,0,0,0)
+    # (2,0,0,0),(2,1,0,0)
+
     type: str = "s"
     name: str = "s"
-    left: float = 0
-    top: float = 0
-    width: float = 50
-    height: float = 50
 
-    print("this is the ShapeS class")
-
-    def get_name(self):
-        return self.name
-
+    def new_s():
+        rect_list = []
+        for i in range(1,3):
+            rect_list.append(Rect(0,i,0,0))
+        rect_list.append(Rect(1,0,0))
+        for i in range(0,2):
+            rect_list.append(Rect(2,i,0,0))
+        
+        return rect_list
+    
 # ShapeSquare
-class ShapeSquare:
-    left: float
-    top: float
-    width: float
-    height: float
+class ShapeSquare(Shape):
+    ## square:
+    # (0,0,0,0),(0,1,0,0)
+    # (1,0,0,0),(1,1,0,0)
 
-    def __init__(self,left,top,width,height):
-        Rect(left,top,width,height)
+    type: str = "square"
+    name: str = "square"
+
+    def new_square():
+        rect_list = []
+        rect_list.append(Rect(0,0,0,0))
+        rect_list.append(Rect(0,1,0,0))
+        rect_list.append(Rect(1,0,0,0))
+        rect_list.append(Rect(1,1,0,0))
+        
+        return rect_list
 
 # ShapeU
-class ShapeU:
+class ShapeU(Shape):
+    ## u:
+    # (0,0,0,0),          (0,2,0,0)
+    # (1,0,0,0),(1,1,0,0),(1,2,0,0)
+
     left: float
     top: float
     width: float
     height: float
 
-    def __init__(self,left,top,width,height):
-        Rect(left,top,width,height)
+    type: str = "u"
+    name: str = "u"
+
+    def new_u():
+        rect_list = []
+        rect_list.append(Rect(0,0,0,0))
+        rect_list.append(Rect(0,2,0,0))
+        rect_list.append(Rect(1,0,0,0))
+        rect_list.append(Rect(1,1,0,0))
+        rect_list.append(Rect(1,2,0,0))
+        
+        return rect_list
