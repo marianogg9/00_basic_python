@@ -20,9 +20,11 @@ class Shape:
     
     @classmethod
     def new_shape(cls):
-        print("this is the Shape.new_shape method") # this is not printed.. but if add a print and return False, pytest prints this.
+        print("this is the Shape.new_shape method")
+        # debug
         # return False
         types = {"bar": ShapeBar, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
+        # debug
         # type = random.choice(list(types))
         type = "bar"
         shape_class = types[type]
@@ -30,6 +32,7 @@ class Shape:
         name = str(type)
         width,height,left,top = 0,0,0,0
 
+        # debug
         # shape = shape_class(type,name,width,height,left,top)
         shape = shape_class(type)
     
@@ -40,12 +43,7 @@ class Shape:
         return shape
 
 # ShapeBar
-class ShapeBar(Shape): 
-    ## bar: 4 in the same column:
-    # (0,0,0,0)
-    # (1,0,0,0)
-    # (2,0,0,0)
-    # (3,0,0,0)
+class ShapeBar(Shape):
 
     type: str = "bar"
     name: str = "bar"
@@ -91,9 +89,6 @@ class ShapeS(Shape):
     
 # ShapeSquare
 class ShapeSquare(Shape):
-    ## square:
-    # (0,0,0,0),(0,1,0,0)
-    # (1,0,0,0),(1,1,0,0)
 
     type: str = "square"
     name: str = "square"
@@ -110,12 +105,6 @@ class ShapeSquare(Shape):
 
 # ShapeU
 class ShapeU(Shape):
-    ## u:
-    # (0,0,0,0),          (0,2,0,0)
-    # (1,0,0,0),(1,1,0,0),(1,2,0,0)
-
-    # left: 1
-    # top: 1
 
     left: float
     top: float

@@ -62,6 +62,7 @@ class Game:
             if self.shape_list is None:
 
                 self.shape_list = Shape.new_shape()
+                # debug
                 # [
                 #     Rect(50,50,50,50),
                 #     Rect(50,100,50,50),
