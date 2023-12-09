@@ -3,6 +3,7 @@ import random
 
 import pygame
 from pygame import Rect
+from models import Shape
 
 pygame.init()
 
@@ -33,7 +34,7 @@ class Game:
         self.timecount = 0
 
         # Init Variables
-        self.shape = None
+        self.shape_list = None
 
         self.init_queue_shape = True
         self.first_shape_creation = True
@@ -44,7 +45,7 @@ class Game:
 
     def draw_current_shape(self):
 
-        for i, rect_sh in enumerate([self.shape]):
+        for i, rect_sh in enumerate(self.shape_list):
             if ((rect_sh.y + rect_sh.height) <= self.bg_rect.height):
                 rect_sh.y += 5
 
@@ -58,17 +59,25 @@ class Game:
             self.screen.fill([0, 0, 0])
             self.screen.blit(self.bg, self.bg_rect)
 
-            if self.shape is None:
+            if self.shape_list is None:
 
-                self.shape = Rect(0, 50, 50, 50)
-                self.shape.x = 300 - self.shape.width / 2 - self.shape.x
+                self.shape_list = Shape.new_shape()
+                # [
+                #     Rect(50,50,50,50),
+                #     Rect(50,100,50,50),
+                #     Rect(50,150,50,50),
+                #     Rect(50,200,50,50),
+                # ]
+                for shape in self.shape_list:
+                    shape.x = 300 - shape.width / 2 - shape.x
 
-            if self.shape is not None:
+            if self.shape_list is not None:
 
                 self.draw_current_shape()
-
-                if self.shape.y + self.shape.height == self.scr_height:
-                    self.shape = None
-                    break
+                
+                for shape in self.shape_list: 
+                    if shape.y + shape.height == self.scr_height:
+                        self.shape_list = None
+                        break
 
             pygame.display.flip()
