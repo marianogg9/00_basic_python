@@ -1,8 +1,12 @@
 import pygame,random
 from pygame import Rect
 
+# new class shapeFactory (to generate a shape)
+
+# shape class: all attributes of a given shape
+
 # Shape
-class Shape:
+class Shape: 
     height: float
     width: float
     left: float
@@ -21,25 +25,14 @@ class Shape:
     @classmethod
     def new_shape(cls):
         print("this is the Shape.new_shape method")
-        # debug
-        # return False
-        types = {"bar": ShapeBar, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
-        # debug
-        # type = random.choice(list(types))
-        type = "bar"
+        types = {"bar": ShapeBar, "square": ShapeSquare} #, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
+        type = "square"
         shape_class = types[type]
-        print(shape_class)
         name = str(type)
-        width,height,left,top = 0,0,0,0
 
-        # debug
-        # shape = shape_class(type,name,width,height,left,top)
         shape = shape_class(type)
+        print(f'{shape.rect_list=}')
     
-        return shape
-
-    def generate_combined_shape(shape1,shape2):
-        shape = Rect.unionall_ip(shape1,shape2)
         return shape
 
 # ShapeBar
@@ -48,81 +41,30 @@ class ShapeBar(Shape):
     type: str = "bar"
     name: str = "bar"
 
-    def get_name(self):
-        return self.name
-
-    def __init__(self,type):
-        rect_list = []
-
-        return self.new_bar(rect_list)
-
-    def new_bar(rect_list):
-        rect_list = [
-            Rect(50,50,50,50),
-            Rect(50,100,50,50),
-            Rect(50,150,50,50),
-            Rect(50,200,50,50),
-        ]
-        return rect_list
-
-# ShapeS
-class ShapeS(Shape): 
-
-    type: str = "s"
-    name: str = "s"
-
-    def new_s():
-        rect_list = [
+    rect_list = [
             Rect(50,50,50,50),
             Rect(100,50,50,50),
             Rect(150,50,50,50),
-            Rect(150,100,50,50),
-            Rect(150,150,50,50),
-            Rect(100,150,50,50),
-            Rect(50,150,50,50),
-            Rect(50,200,50,50),
-            Rect(50,250,50,50),
-            Rect(100,250,50,50),
-            Rect(150,250,50,50)
+            Rect(200,50,50,50),
         ]
-        return rect_list
-    
+
+    def __init__(self,type):
+        super().__init__(self.name,self.type,0,0,0,0)
+        rect_list = []
+
 # ShapeSquare
 class ShapeSquare(Shape):
 
     type: str = "square"
     name: str = "square"
 
-    def new_square():
-        rect_list = [   
+    rect_list = [   
             Rect(50,50,50,50),
             Rect(100,50,50,50),
             Rect(100,100,50,50),
             Rect(50,100,50,50),
         ]
-        
-        return rect_list
-
-# ShapeU
-class ShapeU(Shape):
-
-    left: float
-    top: float
-    width: float
-    height: float
-
-    type: str = "u"
-    name: str = "u"
-
-    def new_u():
-        rect_list = [
-            Rect(150,150,50,50),
-            Rect(150,100,50,50),
-            Rect(150,50,50,50),
-            Rect(100,150,50,50),
-            Rect(50,50,50,50),
-            Rect(50,100,50,50),
-            Rect(50,150,50,50),
-        ]
-        
-        return rect_list
+    
+    def __init__(self,type):
+        super().__init__(self.name,self.type,0,0,0,0)
+        rect_list = []

@@ -14,9 +14,9 @@ class ShapeFactory:
         self.name = name
 
     # debug
-
-    # def generate_new_shape(cls):
-    #     return Shape.new_shape() # models.shape.new_shape
+    @classmethod
+    def generate_new_shape(cls):
+        return Shape.new_shape() # models.shape.new_shape
 
     # def generate_combined_shape(shape1,shape2):
     #     return Shape.generate_combined_shape(shape1,shape2)

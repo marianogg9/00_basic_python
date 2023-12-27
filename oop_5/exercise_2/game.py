@@ -44,9 +44,9 @@ class Game:
         self.score = 0
 
     def draw_current_shape(self):
-
-        for i, rect_sh in enumerate(self.shape_list):
+        for rect_sh in self.shape_list:
             if ((rect_sh.y + rect_sh.height) <= self.bg_rect.height):
+                print(f'{rect_sh.y =}')
                 rect_sh.y += 5
 
             pygame.draw.rect(self.screen, "red", rect_sh)
@@ -60,15 +60,11 @@ class Game:
             self.screen.blit(self.bg, self.bg_rect)
 
             if self.shape_list is None:
+                print('now, shape == None')
 
-                self.shape_list = Shape.new_shape()
-                # debug
-                # [
-                #     Rect(50,50,50,50),
-                #     Rect(50,100,50,50),
-                #     Rect(50,150,50,50),
-                #     Rect(50,200,50,50),
-                # ]
+                self.shape_list = Shape.new_shape().rect_list
+                print('some new shape was generated')
+                
                 for shape in self.shape_list:
                     shape.x = 300 - shape.width / 2 - shape.x
 
@@ -76,9 +72,11 @@ class Game:
 
                 self.draw_current_shape()
                 
-                for shape in self.shape_list: 
-                    if shape.y + shape.height == self.scr_height:
+                for shape in self.shape_list:
+                    if shape.y + shape.height >= self.scr_height: # The problem is, for some reason, the second time it tries to generate a shape, the <shape.y> does not change, it still has the latest value (450)..
+                                                                  # Hence it hits the screen bottom every time, so the shape gets only moved horizontally and loops for ever.
+                        print(f'reached bottom\n')
                         self.shape_list = None
                         break
-
+                    
             pygame.display.flip()
