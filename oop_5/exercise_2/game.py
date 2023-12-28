@@ -73,8 +73,7 @@ class Game:
                 self.draw_current_shape()
                 
                 for shape in self.shape_list:
-                    if shape.y + shape.height >= self.scr_height: # The problem is, for some reason, the second time it tries to generate a shape, the <shape.y> does not change, it still has the latest value (450)..
-                                                                  # Hence it hits the screen bottom every time, so the shape gets only moved horizontally and loops for ever.
+                    if shape.y + shape.height >= self.scr_height:
                         print(f'reached bottom\n')
                         self.shape_list = None
                         break

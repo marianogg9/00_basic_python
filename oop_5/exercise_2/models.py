@@ -21,12 +21,13 @@ class Shape:
         self.top = top
         self.name = name
         self.type = type
+        self.rect_list = []
     
     @classmethod
     def new_shape(cls):
         print("this is the Shape.new_shape method")
-        types = {"bar": ShapeBar, "square": ShapeSquare} #, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
-        type = "square"
+        types = {"bar": ShapeBar, "square": ShapeSquare, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
+        type = random.choice(list(types))
         shape_class = types[type]
         name = str(type)
 
@@ -41,30 +42,62 @@ class ShapeBar(Shape):
     type: str = "bar"
     name: str = "bar"
 
-    rect_list = [
+    def __init__(self,type):
+        self.rect_list = [
             Rect(50,50,50,50),
             Rect(100,50,50,50),
             Rect(150,50,50,50),
             Rect(200,50,50,50),
         ]
 
-    def __init__(self,type):
-        super().__init__(self.name,self.type,0,0,0,0)
-        rect_list = []
-
 # ShapeSquare
 class ShapeSquare(Shape):
 
     type: str = "square"
     name: str = "square"
-
-    rect_list = [   
+    
+    def __init__(self,type):
+        self.rect_list = [
             Rect(50,50,50,50),
             Rect(100,50,50,50),
             Rect(100,100,50,50),
             Rect(50,100,50,50),
         ]
+
+# ShapeS
+class ShapeS(Shape):
+
+    type: str = "s"
+    name: str = "s"
     
     def __init__(self,type):
-        super().__init__(self.name,self.type,0,0,0,0)
-        rect_list = []
+        self.rect_list = [
+            Rect(50,50,50,50),
+            Rect(100,50,50,50),
+            Rect(150,50,50,50),
+            Rect(150,100,50,50),
+            Rect(150,150,50,50),
+            Rect(100,150,50,50),
+            Rect(50,150,50,50),
+            Rect(50,200,50,50),
+            Rect(50,250,50,50),
+            Rect(100,250,50,50),
+            Rect(150,250,50,50)
+        ]
+
+# ShapeU
+class ShapeU(Shape):
+
+    type: str = "u"
+    name: str = "u"
+    
+    def __init__(self,type):
+        self.rect_list = [
+            Rect(150,150,50,50),
+            Rect(150,100,50,50),
+            Rect(150,50,50,50),
+            Rect(100,150,50,50),
+            Rect(50,50,50,50),
+            Rect(50,100,50,50),
+            Rect(50,150,50,50),
+        ]
