@@ -25,14 +25,14 @@ class Shape:
     
     @classmethod
     def new_shape(cls):
-        print("this is the Shape.new_shape method")
+        # print("this is the Shape.new_shape method")
         types = {"bar": ShapeBar, "square": ShapeSquare, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
         type = random.choice(list(types))
         shape_class = types[type]
         name = str(type)
 
         shape = shape_class(type)
-        print(f'{shape.rect_list=}')
+        # print(f'{shape.rect_list=}')
     
         return shape
 

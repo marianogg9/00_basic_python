@@ -46,7 +46,7 @@ class Game:
     def draw_current_shape(self):
         for rect_sh in self.shape_list:
             if ((rect_sh.y + rect_sh.height) <= self.bg_rect.height):
-                print(f'{rect_sh.y =}')
+                # print(f'{rect_sh.y =}')
                 rect_sh.y += 5
 
             pygame.draw.rect(self.screen, "red", rect_sh)
@@ -60,10 +60,10 @@ class Game:
             self.screen.blit(self.bg, self.bg_rect)
 
             if self.shape_list is None:
-                print('now, shape == None')
+                # print('now, shape == None')
 
                 self.shape_list = Shape.new_shape().rect_list
-                print('some new shape was generated')
+                # print('some new shape was generated')
                 
                 for shape in self.shape_list:
                     shape.x = 300 - shape.width / 2 - shape.x
@@ -74,7 +74,7 @@ class Game:
                 
                 for shape in self.shape_list:
                     if shape.y + shape.height >= self.scr_height:
-                        print(f'reached bottom\n')
+                        # print(f'reached bottom\n')
                         self.shape_list = None
                         break
                     

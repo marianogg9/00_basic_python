@@ -24,12 +24,12 @@ class ShapeFactory:
     @classmethod
     def new_shape(cls):
         # debug
-        print("this is the Shape.new_shape method")
-        # return False
+        # print("this is the Shape.new_shape method")
+        
         types = {"bar": ShapeBar, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
         type = random.choice(list(types))
         shape_class = types[type]
-        print(shape_class)
+        # print(shape_class)
         name = str(type)
         width,height,left,top = 0,0,0,0
 
@@ -38,5 +38,9 @@ class ShapeFactory:
         return shape
 
     def generate_combined_shape(shape1,shape2):
-        shape = Rect.unionall_ip(shape1,shape2)
+        shape = shape1
+        shape.name = "custom"
+        for rect in shape2.rect_list:
+            shape.rect_list.append(rect)
+
         return shape
