@@ -2,6 +2,7 @@
 import random
 
 import pygame
+from pygame.locals import *
 from pygame import Rect
 from models import Shape
 
@@ -42,39 +43,53 @@ class Game:
         self.created_id = 0
 
         self.score = 0
+    
+    def rotation90_list(self):
+        for rect in self.shape_list:
+            temp = rect.y - 20
+            rect.y = rect.x
+            rect.x = temp    
 
-    def draw_current_shape(self):
+    # def rotation90(self,rect):
+    #     temp = rect.y
+    #     rect.y = rect.x
+    #     rect.x = temp
+
+    def draw_current_shape(self,shape_color):
+
         for rect_sh in self.shape_list:
             if ((rect_sh.y + rect_sh.height) <= self.bg_rect.height):
-                # print(f'{rect_sh.y =}')
-                rect_sh.y += 5
-
-            pygame.draw.rect(self.screen, "red", rect_sh)
+                rect_sh.y += 20
+            
+            pygame.draw.rect(self.screen, shape_color, rect_sh)
 
     def run(self):
         mainloop = True
+        shape_color = "red"
         while mainloop:
-
-            self.clock.tick(40)
+            self.clock.tick(1)
             self.screen.fill([0, 0, 0])
             self.screen.blit(self.bg, self.bg_rect)
 
             if self.shape_list is None:
-                # print('now, shape == None')
 
                 self.shape_list = Shape.new_shape().rect_list
-                # print('some new shape was generated')
-                
-                for shape in self.shape_list:
-                    shape.x = 300 - shape.width / 2 - shape.x
+            
+                # for shape in self.shape_list:
+                #     shape.x = 300 - shape.width / 2 - shape.x
 
             if self.shape_list is not None:
+                # check for user entry (keyboard)
+                # call the rotation function
+                for event in pygame.event.get():
+                    if event.type == KEYDOWN:
+                        if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
+                            self.rotation90_list()
 
-                self.draw_current_shape()
-                
+                self.draw_current_shape(shape_color)
+
                 for shape in self.shape_list:
                     if shape.y + shape.height >= self.scr_height:
-                        # print(f'reached bottom\n')
                         self.shape_list = None
                         break
                     

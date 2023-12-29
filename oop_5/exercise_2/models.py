@@ -28,6 +28,7 @@ class Shape:
         # print("this is the Shape.new_shape method")
         types = {"bar": ShapeBar, "square": ShapeSquare, "u": ShapeU, "square": ShapeSquare, "s": ShapeS}
         type = random.choice(list(types))
+        # type = "bar"
         shape_class = types[type]
         name = str(type)
 
@@ -58,10 +59,10 @@ class ShapeSquare(Shape):
     
     def __init__(self,type):
         self.rect_list = [
-            Rect(50,50,50,50),
-            Rect(100,50,50,50),
-            Rect(100,100,50,50),
-            Rect(50,100,50,50),
+            Rect(40,40,40,40),
+            Rect(80,40,40,40),
+            Rect(80,80,40,40),
+            Rect(40,80,40,40),
         ]
 
 # ShapeS
