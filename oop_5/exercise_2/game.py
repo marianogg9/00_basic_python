@@ -65,15 +65,16 @@ class Game:
 
     def run(self):
         mainloop = True
-        shape_color = "red"
+        # shape_color = ["red","green","blue","yellow"]
         while mainloop:
-            self.clock.tick(1)
+            self.clock.tick(10)
             self.screen.fill([0, 0, 0])
             self.screen.blit(self.bg, self.bg_rect)
 
             if self.shape_list is None:
 
                 self.shape_list = Shape.new_shape().rect_list
+                shape_color = random.choice(["red","green","blue","yellow"])
             
                 # for shape in self.shape_list:
                 #     shape.x = 300 - shape.width / 2 - shape.x
