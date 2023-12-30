@@ -45,10 +45,33 @@ class Game:
         self.score = 0
     
     def rotation90_list(self):
-        for rect in self.shape_list:
+        for rect in self.shape_list[:2]: # 0,1
             temp = rect.y - 20
             rect.y = rect.x
             rect.x = temp    
+        
+        for rect in self.shape_list[2:]: # 3,4
+            temp = rect.y - 20
+            rect.y = rect.x
+            rect.x = temp
+
+    def rota(self):
+        for rect in self.shape_list:
+            rect.move_ip(-rect.x,-rect.y)
+
+        # original:
+        # Rect(50,50,50,50),
+        # Rect(100,50,50,50),
+        # Rect(150,50,50,50),
+        # Rect(200,50,50,50),
+        # Rect(250,50,50,50)
+
+        # rotated:
+        # Rect(50,50,50,50),
+        # Rect(50,100,50,50),
+        # Rect(50,150,50,50),
+        # Rect(50,200,50,50),
+        # Rect(50,250,50,50),
 
     # def rotation90(self,rect):
     #     temp = rect.y
@@ -86,6 +109,7 @@ class Game:
                     if event.type == KEYDOWN:
                         if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
                             self.rotation90_list()
+                            # self.rota()
 
                 self.draw_current_shape(shape_color)
 
